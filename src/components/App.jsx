@@ -38,7 +38,7 @@ export class App extends Component {
     }
   }
 
-  toggleModal = (modalItem = null) => {
+  ModalOpen = (modalItem = null) => {
     this.setState(prev => ({ isModalOpen: !prev.isModalOpen, modalItem }));
   };
 
@@ -87,17 +87,15 @@ export class App extends Component {
         {isError && <Err message={error.message} />}
         {isLoading && <Loader />}
         {!isError && (
+          
           <>
-            {/* render if ok */}
+          {}
+            <ImageGallery openModal={this.ModalOpen} items={data} />
 
-            <ImageGallery openModal={this.toggleModal} items={data} />
-
-            {loadMoreBtn && (
-              <LoadMoreBtn handleClick={this.loadMoreBtn} />
-            )}
+            {loadMoreBtn && <LoadMoreBtn handleClick={this.loadMoreBtn} />}
 
             {isModalOpen && (
-              <Modal modalItem={modalItem} closeModal={this.toggleModal} />
+              <Modal modalItem={modalItem} closeModal={this.ModalOpen} />
             )}
           </>
         )}

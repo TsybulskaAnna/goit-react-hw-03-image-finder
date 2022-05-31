@@ -1,9 +1,14 @@
-import { BarLoader} 
-from 'react-spinner-animated';
+import { BarLoader } from 'react-spinner-animated';
 
 const Loader = () => {
-  return < BarLoader text={"Loading..."}  
-    center={false} width={"150px"} height={"150px"}/>
+  return (
+    <BarLoader
+      text={'Loading...'}
+      center={true}
+      width={'150px'}
+      height={'150px'}
+    />
+  );
 };
 
 export default Loader;

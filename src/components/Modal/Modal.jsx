@@ -5,18 +5,18 @@ const modalRoot = document.getElementById('modal');
 
 export class Modal extends Component {
   componentDidMount() {
-    window.addEventListener('keydown', this.handleEsc);
+    window.addEventListener('keydown', this.Esc);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleEsc);
+    window.removeEventListener('keydown', this.Esc);
   }
-  handleClick = e => {
+  Click = e => {
     if (e.currentTarget === e.target) {
       this.props.closeModal();
     }
   };
-  handleEsc = e => {
+  Esc = e => {
     if (e.code === 'Escape') {
       this.props.closeModal();
     }
@@ -25,7 +25,7 @@ export class Modal extends Component {
   render() {
     const { largeImageURL, tags } = this.props.modalItem;
     return createPortal(
-      <div onClick={this.handleClick} className="Overlay">
+      <div onClick={this.Click} className="Overlay">
         <div className="Modal">
           <img src={largeImageURL} alt={tags} />
         </div>
