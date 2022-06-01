@@ -1,4 +1,5 @@
-import ImageGalleryItem from "components/ImageGalleryItem/ImageGalleryItem";
+import PropTypes from 'prop-types';
+import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 
 const ImageGallery = ({ items, openModal }) => {
   return (
@@ -12,3 +13,7 @@ const ImageGallery = ({ items, openModal }) => {
   );
 };
 export default ImageGallery;
+ImageGallery.prototype = {
+  items: PropTypes.object.isRequired,
+  openModal: PropTypes.func.isRequired,
+};
