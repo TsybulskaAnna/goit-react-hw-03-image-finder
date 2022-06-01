@@ -3,6 +3,10 @@ import { Component } from 'react';
 export class SearchBar extends Component {
   state = { input: '' };
 
+  handleChange = e => {
+    this.setState({ input: e.target.value });
+  };
+
   onSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state.input);
@@ -16,7 +20,7 @@ export class SearchBar extends Component {
           </button>
 
           <input
-            onChange={e => this.setState({ input: e.target.value })}
+            onChange={this.handleChange}
             className="SearchForm-input"
             type="text"
             autoFocus

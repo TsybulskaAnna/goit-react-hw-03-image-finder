@@ -23,11 +23,7 @@ export class App extends Component {
     data: [],
   };
 
-  componentDidMount() {
-    if (!this.state.data.length) {
-      this.imageSearch({ q: '', page: 1 });
-    }
-  }
+  
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.page > 1) {
@@ -61,8 +57,8 @@ export class App extends Component {
 
     key({ q, page })
       .then(data => {
-        if (!data.hits.length && q) {
-          throw new Error('no images on search :' + q);
+        if (!data.hits.length) {
+          throw new Error('По вашему запросу ничего не найдено');
         }
         this.setState(prev => ({
           data: [...prev.data, ...data.hits],
